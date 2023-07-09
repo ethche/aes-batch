@@ -108,7 +108,7 @@ def filter_bar_s2(df, metric, batch, K, T, policies, prior_type):
     else:
         plot_metric = "avg_correct"
 
-    pivot = plot_df.pivot('s2', 'policy', plot_metric)
+    pivot = plot_df.pivot(index = 's2', columns = 'policy', values = plot_metric)
     return pivot
 
 @st.cache
