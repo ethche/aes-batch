@@ -85,7 +85,7 @@ def plot_line(df, metric, reward_dist, batch, K, T_limit, policies, s2, prior_ty
     ax.set_xticks(pivot.index, fontsize = 20)
     st.pyplot(fig)
 
-@st.cache_data
+@st.cache
 def filter_bar_s2(df, metric, batch, K, T, policies, prior_type):
 
     K_cond = df['k'] == K
@@ -111,7 +111,7 @@ def filter_bar_s2(df, metric, batch, K, T, policies, prior_type):
     pivot = plot_df.pivot('s2', 'policy', plot_metric)
     return pivot
 
-@st.cache_data
+@st.cache
 def filter_bar_prior(df, metric, reward_dist, batch, K, T, policies, s2, color_dict = color_dict):
 
     K_cond = df['k'] == K
