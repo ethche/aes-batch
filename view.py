@@ -68,7 +68,7 @@ def plot_line(df, metric, reward_dist, batch, K, T_limit, policies, s2, prior_ty
         plot_metric = "avg_correct"
 
     fig, ax = plt.subplots()
-    pivot = plot_df.pivot('T', 'policy', plot_metric)
+    pivot = plot_df.pivot(index = 'T', columns = 'policy', values = plot_metric)
 
     ordered_pols = [key for key in color_dict.keys() if key in pivot.columns]
     pivot = pivot[ordered_pols]
@@ -137,7 +137,7 @@ def filter_bar_prior(df, metric, reward_dist, batch, K, T, policies, s2, color_d
         plot_metric = "avg_correct"
 
     fig, ax = plt.subplots()
-    pivot = plot_df.pivot('prior', 'policy', plot_metric)
+    pivot = plot_df.pivot(index = 'prior', columns = 'policy', values = plot_metric)
     pivot = pivot.reindex(["Flat", "Top One", "Top Half", "Descending"])
 
     return pivot
