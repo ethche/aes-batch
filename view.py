@@ -68,7 +68,7 @@ def plot_line(df, metric, reward_dist, batch, K, T_limit, policies, s2, prior_ty
         plot_metric = "avg_correct"
 
     fig, ax = plt.subplots()
-    pivot = plot_df.pivot('T', 'policy', plot_metric)
+    pivot = plot_df.pivot(columns = 'T', index = 'policy', values = plot_metric)
 
     ordered_pols = [key for key in color_dict.keys() if key in pivot.columns]
     pivot = pivot[ordered_pols]
